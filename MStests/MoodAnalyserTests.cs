@@ -12,12 +12,22 @@ namespace MoodAnalyserProgram.Tests
     public class MoodAnalyserTests
     {
         [TestMethod()]
-        public void AnalyseMoodTest()
+        public void AnalyseMoodTestSad()
         {
             string expected = "\nSAD";
             MoodAnalyser moodAnalyser = new MoodAnalyser();
 
             string actual = moodAnalyser.AnalyseMood("I am in sad mood");
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod()]
+        public void AnalyseMoodTestHappy()
+        {
+            string expected = "\nHAPPY";
+            MoodAnalyser moodAnalyser = new MoodAnalyser();
+
+            string actual = moodAnalyser.AnalyseMood("I am in happy mood");
 
             Assert.AreEqual(expected, actual);
         }
