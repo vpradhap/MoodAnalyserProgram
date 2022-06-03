@@ -8,15 +8,15 @@ namespace MoodAnalyserProgram
 {
     public class MoodAnalyser
     {
-        public string AnalyseMood(string meassage)
+        public string AnalyseMood(string message)
         {
-            if (meassage.ToLower().Contains("sad"))
+            if (message.ToLower().Contains("sad"))
             {
-                return "\nSAD MOOD";
+                return "\nSAD";
             }
             else
             {
-                return "\nHAPPY MOOD";
+                return "\nHAPPY";
             }
         }
     }
