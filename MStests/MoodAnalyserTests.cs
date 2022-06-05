@@ -31,5 +31,15 @@ namespace MoodAnalyserProgram.Tests
 
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod()]
+        public void AnalyseMoodTestNull()
+        {
+            string expected = "\nHAPPY...";
+            MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+
+            string actual = moodAnalyser.AnalyseMood();
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
