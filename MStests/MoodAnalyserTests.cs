@@ -15,9 +15,9 @@ namespace MoodAnalyserProgram.Tests
         public void AnalyseMoodTestSad()
         {
             string expected = "\nSAD";
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
+            MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad mood");
 
-            string actual = moodAnalyser.AnalyseMood("I am in sad mood");
+            string actual = moodAnalyser.AnalyseMood();
 
             Assert.AreEqual(expected, actual);
         }
@@ -25,9 +25,9 @@ namespace MoodAnalyserProgram.Tests
         public void AnalyseMoodTestHappy()
         {
             string expected = "\nHAPPY";
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
+            MoodAnalyser moodAnalyser = new MoodAnalyser("I am in any mood");
 
-            string actual = moodAnalyser.AnalyseMood("I am in happy mood");
+            string actual = moodAnalyser.AnalyseMood();
 
             Assert.AreEqual(expected, actual);
         }
