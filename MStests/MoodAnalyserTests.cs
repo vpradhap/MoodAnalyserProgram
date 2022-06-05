@@ -31,15 +31,37 @@ namespace MoodAnalyserProgram.Tests
 
             Assert.AreEqual(expected, actual);
         }
-        [TestMethod()]
-        public void AnalyseMoodTestNull()
+        
+        [TestMethod]
+        public void TestCustomException_ShouldReturn_CustomNullMsgException_When_given_null()
         {
-            string expected = "\nHAPPY...";
-            MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+            try
+            {
+                string message = null;
+                MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+                moodAnalyser.AnalyseMood();
+            }
+            catch (CustomException e)
+            {
+                Assert.AreEqual("Message should not be null", e.Message);
+            }
 
-            string actual = moodAnalyser.AnalyseMood();
+        }
 
-            Assert.AreEqual(expected, actual);
+        [TestMethod]
+        public void TestCustomException_ShouldReturn_CustomEmptyMsgException_When_given_empty()
+        {
+            try
+            {
+                string message = "";
+                MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+                moodAnalyser.AnalyseMood();
+            }
+            catch (CustomException e)
+            {
+
+                Assert.AreEqual("Message should not be empty", e.Message);
+            }
         }
     }
 }
