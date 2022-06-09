@@ -10,10 +10,10 @@ namespace MoodAnalyserProgram
     {
         public enum ExceptionType
         {
-            NULL_MESSAGE, EMPTY_MESSAGE
+            NULL_MESSAGE, EMPTY_MESSAGE, NO_SUCH_CLASS, NO_SUCH_METHOD
         }
 
-        public readonly ExceptionType Type;
+        public ExceptionType Type;
         public CustomException(ExceptionType type, string message) : base(message)
         {
             this.Type = type;

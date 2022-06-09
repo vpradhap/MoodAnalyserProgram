@@ -63,5 +63,44 @@ namespace MoodAnalyserProgram.Tests
                 Assert.AreEqual("Message should not be empty", e.Message);
             }
         }
+        [TestMethod]
+        public void Given_MoodAnalyser_ClassName_Should_Return_MoodAnalyser_Object()
+        {
+            string className = "MoodAnalyserProgram.MoodAnalyser";
+            string constructorName = "MoodAnalyser";
+            MoodAnalyser expected = new MoodAnalyser();
+            object resultObj = MoodAnalyserFactory.CreateMoodAnalyser(className, constructorName);
+            expected.Equals(resultObj);
+        }
+
+        [TestMethod]
+        public void ImproperClassName_ShouldThrowMoodAnalysisException()
+        {
+            try
+            {
+                string className = "WrongNamespace.MoodAnalyser";
+                string constructorName = "MoodAnalyser";
+                object resultObj = MoodAnalyserFactory.CreateMoodAnalyser(className, constructorName);
+            }
+            catch (CustomException e)
+            {
+                Assert.AreEqual("class not found", e.Message);
+            }
+        }
+
+        [TestMethod]
+        public void ImproperConstructorName_ShouldThrowMoodAnalysisException()
+        {
+            try
+            {
+                string className = "MoodAnalyserProgram.MoodAnalyser";
+                string constructorName = "WrongConstructorName";
+                object resultObj = MoodAnalyserFactory.CreateMoodAnalyser(className, constructorName);
+            }
+            catch (CustomException e)
+            {
+                Assert.AreEqual("constructor not found", e.Message);
+            }
+        }
     }
 }
